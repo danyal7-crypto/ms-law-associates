@@ -88,12 +88,20 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, #1a3a5c 100%);
-    color: var(--white);
-    padding: 120px 20px;
-    text-align: center;
-    animation: fadeIn 0.8s ease-in;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+
+  background:
+    linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
+    url('hero.jpg');
+
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
+   
 
 .hero h1 {
     font-size: 3rem;
