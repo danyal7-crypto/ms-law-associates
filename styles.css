@@ -499,3 +499,73 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* PREMIUM GLOBAL LOOK */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+section {
+  padding: 80px 20px;
+}
+
+/* TEAM CARD */
+.team-member {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-8px);
+  border-bottom: 3px solid #C9A14A;
+}
+
+/* HEADING LINE EFFECT */
+h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: #C9A14A;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+}
+
+/* BUTTON IMPROVEMENT */
+.btn-primary {
+  background: #C9A14A;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #b8913f;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
