@@ -1,10 +1,13 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Segoe+UI:wght@400;500;600;700&display=swap');
+
 /* Global Variables */
 :root {
     --primary-bg: #0d0d0d;
     --secondary-bg: #1a1a1a;
     --gold: #d4af37;
     --white: #ffffff;
-    --light-gray: #cccccc;
+    --light-gray: #e0e0e0;
     --dark-gray: #999999;
 }
 
@@ -24,6 +27,7 @@ body {
     color: var(--white);
     line-height: 1.6;
     background-color: var(--primary-bg);
+    overflow-x: hidden;
 }
 
 .container {
@@ -56,6 +60,7 @@ body {
     letter-spacing: 2px;
     color: var(--gold);
     text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
 }
 
 .nav-menu {
@@ -92,59 +97,74 @@ body {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/* HERO SECTION - CINEMATIC PREMIUM STYLE */
 .hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 0 80px;
-  position: relative;
-  color: #fff;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.2) 100%), url('hero.png') center/cover no-repeat;
+    background-attachment: fixed;
+    color: var(--white);
+    padding: 100px 20px;
+    text-align: left;
+    animation: fadeIn 0.8s ease-in;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
 
-  /* Background image */
-  background: url('./hero.png') no-repeat center center/cover;
-
-/* DARK + CINEMATIC OVERLAY */
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  /* Left dark → right slightly visible */
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.85) 20%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
-
-  z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at right, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* GOLD WARM LIGHT EFFECT (subtle) */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at 85% 40%,
-    rgba(212, 175, 55, 0.25),
-    transparent 40%
-  );
-
-  z-index: 1;
+.hero-content {
+    max-width: 650px;
+    margin: 0;
+    position: relative;
+    z-index: 2;
 }
 
-/* Ensure content stays above overlay */
-.hero .container {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    color: var(--light-gray);
+    max-width: 550px;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 /* Buttons */
 .btn {
-    padding: 12px 30px;
+    padding: 14px 35px;
     border: 2px solid var(--gold);
     background-color: transparent;
     color: var(--gold);
@@ -154,9 +174,17 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+}
+
+.btn::after {
+    content: '→';
+    transition: transform 0.3s ease;
 }
 
 .btn:hover {
@@ -164,6 +192,10 @@ body {
     color: var(--primary-bg);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn:hover::after {
+    transform: translateX(5px);
 }
 
 .btn-primary {
@@ -188,28 +220,29 @@ body {
 
 /* Services Section */
 .services {
-    padding: 60px 20px;
+    padding: 80px 20px;
     background-color: var(--primary-bg);
 }
 
 .services h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--gold);
     margin-bottom: 3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .service-card {
     background: var(--secondary-bg);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 4px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -225,33 +258,34 @@ body {
 }
 
 .service-icon {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--gold);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .service-card h3 {
     color: var(--white);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
 }
 
 .service-card p {
     color: var(--light-gray);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 0.95rem;
 }
 
 .service-card ul {
     list-style: none;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: left;
 }
 
 .service-card li {
-    padding: 0.5rem 0;
+    padding: 0.7rem 0;
     color: var(--light-gray);
-    padding-left: 1.5rem;
+    padding-left: 1.8rem;
     position: relative;
     font-size: 0.9rem;
 }
@@ -262,33 +296,34 @@ body {
     left: 0;
     color: var(--gold);
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /* About Section */
 .about {
-    padding: 60px 20px;
+    padding: 80px 20px;
     background-color: var(--secondary-bg);
 }
 
 .about h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--gold);
     margin-bottom: 3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
 .about-item {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
     background: var(--primary-bg);
     border-radius: 4px;
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -301,46 +336,48 @@ body {
 }
 
 .about-item i {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--gold);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .about-item h3 {
     color: var(--white);
     margin-bottom: 0.8rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
 }
 
 .about-item p {
     color: var(--light-gray);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* Team Section */
 .team {
-    padding: 60px 20px;
+    padding: 80px 20px;
     background-color: var(--primary-bg);
 }
 
 .team h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--gold);
     margin-bottom: 3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
 }
 
 .team-member {
     background: var(--secondary-bg);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 4px;
     text-align: center;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
@@ -355,7 +392,7 @@ body {
 }
 
 .member-avatar {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--gold);
     margin-bottom: 1rem;
 }
@@ -363,64 +400,67 @@ body {
 .team-member h3 {
     color: var(--white);
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
 }
 
 .team-member p {
     color: var(--light-gray);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
 .team-member .title {
     color: var(--gold);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
 }
 
 /* Contact Section */
 .contact {
-    padding: 60px 20px;
+    padding: 80px 20px;
     background-color: var(--secondary-bg);
 }
 
 .contact h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--gold);
     margin-bottom: 3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .contact-info h3 {
     color: var(--gold);
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
 }
 
 .info-item {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .info-item i {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: var(--gold);
     min-width: 30px;
-    margin-top: 3px;
+    margin-top: 5px;
 }
 
 .info-item p {
     color: var(--light-gray);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .info-item a {
@@ -437,12 +477,12 @@ body {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 12px;
+    padding: 14px;
     border: 1px solid rgba(212, 175, 55, 0.3);
     background-color: var(--primary-bg);
     color: var(--white);
@@ -473,23 +513,24 @@ body {
 .footer {
     background-color: #000000;
     color: var(--white);
-    padding: 2.5rem 20px 1rem;
+    padding: 3rem 20px 1rem;
     border-top: 2px solid var(--gold);
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .footer-section h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--gold);
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
 }
 
 .footer-section ul {
@@ -500,7 +541,7 @@ body {
     color: var(--light-gray);
     text-decoration: none;
     transition: color 0.3s;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 .footer-section a:hover {
@@ -508,17 +549,17 @@ body {
 }
 
 .footer-section ul li {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
 }
 
 .social-links {
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
 }
 
 .social-links a {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -527,7 +568,6 @@ body {
     border-radius: 50%;
     transition: all 0.3s;
     color: var(--gold);
-    font-size: 1rem;
 }
 
 .social-links a:hover {
@@ -538,10 +578,10 @@ body {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(212, 175, 55, 0.15);
     color: var(--light-gray);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 /* Floating WhatsApp Button */
@@ -645,26 +685,27 @@ body {
 
     .hero {
         padding: 60px 20px;
-        min-height: 400px;
+        min-height: 450px;
         background-attachment: scroll;
     }
 
     .hero h1 {
-        font-size: 2rem;
-        letter-spacing: 1px;
+        font-size: 2.8rem;
+        letter-spacing: 2px;
         margin-bottom: 1rem;
     }
 
     .hero p {
         font-size: 1rem;
+        margin-bottom: 2rem;
     }
 
     .hero-buttons {
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     .btn {
-        padding: 10px 20px;
+        padding: 12px 25px;
         font-size: 0.85rem;
     }
 
@@ -672,23 +713,23 @@ body {
     .about h2,
     .team h2,
     .contact h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .services {
-        padding: 50px 20px;
+        padding: 60px 20px;
     }
 
     .about {
-        padding: 50px 20px;
+        padding: 60px 20px;
     }
 
     .team {
-        padding: 50px 20px;
+        padding: 60px 20px;
     }
 
     .contact {
-        padding: 50px 20px;
+        padding: 60px 20px;
     }
 
     .contact-grid {
@@ -737,6 +778,7 @@ body {
     .hero {
         padding: 40px 15px;
         min-height: 350px;
+        background-attachment: scroll;
     }
 
     .hero-content {
@@ -744,9 +786,10 @@ body {
     }
 
     .hero h1 {
-        font-size: 1.5rem;
-        letter-spacing: 0.5px;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
         margin-bottom: 1rem;
+        line-height: 1.2;
     }
 
     .hero p {
@@ -763,13 +806,14 @@ body {
         padding: 10px 20px;
         font-size: 0.8rem;
         width: 100%;
+        justify-content: center;
     }
 
     .services h2,
     .about h2,
     .team h2,
     .contact h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         margin-bottom: 2rem;
     }
 
